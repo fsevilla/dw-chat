@@ -22,9 +22,9 @@ export class Contact {
     this.form = fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]], // required, minlength
       email: ['', [Validators.required, Validators.email]],  // required, email
-      phone: '1234', // numeric
-      subject: 'suggestion', // required
-      message: 'lorem ipsum' // required
+      phone: ['', [Validators.pattern(/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/)]], // phone format
+      subject: ['suggestion', Validators.required], // required
+      message: ['lorem ipsum', [Validators.required, Validators.minLength(5), Validators.maxLength(500)]] // required
     })
   }
 
