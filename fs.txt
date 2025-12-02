@@ -1,0 +1,27 @@
+
+/app 
+    layout 
+        header 
+        footer
+    pages
+        login 
+        signup
+        home
+        about-us 
+        contact-us 
+        rooms 
+        chat 
+        not Found
+            users/
+                list 
+                user details 
+                create user
+                update user
+
+    shared 
+        components
+        services 
+        directives
+        guards 
+
+

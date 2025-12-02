@@ -1,0 +1,11 @@
+<header>
+    <span>My App</span>
+
+    <span class="spacer"></span>
+
+    <!-- <a href="{{links[0].href}}">{{links[0].label}}</a> -->
+    @for (item of links; track $index) {
+         <a routerLink="{{item.href}}">{{item.label}}</a>
+    }
+
+</header>

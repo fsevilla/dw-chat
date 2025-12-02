@@ -1,0 +1,27 @@
+header {
+    height: 80px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: darkblue;
+    color: white;
+    display: flex;
+
+    span {
+        font-size: 32px;
+        font-weight: bold;
+        line-height: 40px;
+
+        &.spacer {
+            flex: 1 1 auto;
+        }
+    }
+
+
+    a {
+        color: white;
+        line-height: 40px;
+        text-decoration: none;
+        margin-left: 8px;
+    }
+
+}

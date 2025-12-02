@@ -1,0 +1,32 @@
+<form (submit)="onSubmit()">
+    <div>
+        <label for="name">*Name:</label>
+        <input (keyup)="onKeyup($event)" type="text" value="{{name}}" />
+    </div>
+    <div>
+        <label for="email">*Email:</label>
+        <input type="email" name="email" value="{{email}}" />
+    </div>
+    <div>
+        <label for="phone">Phone:</label>
+        <input type="text" name="phone">
+    </div>
+    <div>
+        <label for="subject">*Subject:</label>
+        <select name="subject">
+            <option value="">Select an option...</option>
+            <option value="suggestion">Suggestion</option>
+            <option value="greetings">Greetings</option>
+        </select>
+    </div>
+    <div>
+        <label for="message">Message:</label>
+        <textarea name="message"></textarea>
+    </div>
+    <div>
+        <button>Send</button>
+    </div>
+</form>
+
+
+
