@@ -1,49 +1,65 @@
-<form [formGroup]="form" (submit)="onSubmit()">
-    <div>
-        <label for="name">*Name:</label>
-        <!-- <input #nameInput (keyup)="onKeyup(nameInput)" type="text" value="{{name}}" /> -->
-         <input type="text" name="name" formControlName="name" >
-         @if (form.controls['name'].errors && form.controls['name'].touched) {
-            @if (form.controls['name'].errors['required']) {
-                <span class="error">This field is required</span>
-            } @else {
-                <span class="error">It must have at least 3 characters</span>
-            }
-         }
-    </div>
-    <div>
-        <label for="email">*Email:</label>
-        <input type="email" name="email" formControlName="email" />
-        @if (form.controls['email'].errors && form.controls['email'].touched) {
-            @if (form.controls['email'].errors['required']) {
-                <span class="error">This field is required</span>
-            } @else {
-                <span class="error">It must be a valid email address</span>
-            }
-         }
-    </div>
-    <div>
-        <label for="phone">Phone:</label>
-        <input type="text" placeholder="+52 111-111-1111" name="phone" formControlName="phone">
-    </div>
-    <div>
-        <label for="subject">*Subject:</label>
-        <select name="subject" formControlName="subject">
-            <option value="">Select an option...</option>
-            <option value="suggestion">Suggestion</option>
-            <option value="greetings">Greetings</option>
-        </select>
-    </div>
-    <div>
-        <label for="message">Message:</label>
-        <textarea name="message" formControlName="message"></textarea>
-    </div>
-    <div>
-        <button (click)="onCancel($event)">Cancel</button>
-        <button type="button">Cancel2</button>
-        <a href="">Cancel</a>
-        <button [disabled]="form.invalid">Send</button>
-        <input type="submit" value="Send" [disabled]="form.invalid">
-    </div>
-</form>
-
+<div id="form-container">
+    @if (!isSent) {
+        <form [formGroup]="form" (submit)="onSubmit()">
+            <div>
+                <label for="name">*Name:</label>
+                <!-- <input #nameInput (keyup)="onKeyup(nameInput)" type="text" value="{{name}}" /> -->
+                <input type="text" name="name" formControlName="name"
+                [ngClass]="{
+                    error: form.controls['name'].errors && form.controls['name'].touched
+                }"
+                >
+                @if (form.controls['name'].errors && form.controls['name'].touched) {
+                    @if (form.controls['name'].errors['required']) {
+                        <span class="error">This field is required</span>
+                    } @else {
+                        <span class="error">It must have at least 3 characters</span>
+                    }
+                }
+            </div>
+            <div>
+                <label for="email">*Email:</label>
+                <input type="email" name="email" formControlName="email" [ngClass]="{
+                    error: form.controls['email'].errors && form.controls['email'].touched
+                }" />
+                @if (form.controls['email'].errors && form.controls['email'].touched) {
+                    @if (form.controls['email'].errors['required']) {
+                        <span class="error">This field is required</span>
+                    } @else {
+                        <span class="error">It must be a valid email address</span>
+                    }
+                }
+            </div>
+            <div>
+                <label for="phone">Phone:</label>
+                <input type="text" placeholder="+52 111-111-1111" name="phone" formControlName="phone" [ngClass]="{
+                    error: form.controls['phone'].errors && form.controls['phone'].touched
+                }">
+            </div>
+            <div>
+                <label for="subject">*Subject:</label>
+                <select name="subject" formControlName="subject">
+                    <option value="">Select an option...</option>
+                    <option value="suggestion">Suggestion</option>
+                    <option value="greetings">Greetings</option>
+                </select>
+            </div>
+            <div>
+                <label for="message">Message:</label>
+                <textarea name="message" formControlName="message" [ngClass]="{
+                    error: form.controls['message'].errors && form.controls['message'].touched
+                }"></textarea>
+            </div>
+            <div>
+                <button (click)="onCancel($event)">Cancel</button>
+                <!-- <button type="button">Cancel2</button>
+                <a href="">Cancel</a> -->
+                <button [disabled]="form.invalid || isLoading">Send</button>
+                <!-- <input type="submit" value="Send" [disabled]="form.invalid"> -->
+            </div>
+        </form>
+    } @else {
+        <h2>Thank you!</h2>
+        <p>Your message was received</p>
+    }
+</div>
