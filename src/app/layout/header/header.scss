@@ -6,6 +6,15 @@ header {
     color: white;
     display: flex;
 
+    mat-icon {
+        font-size: 32px;
+        width: 40px;
+        margin-right: 6px;
+        line-height: 40px;
+        height: 40px;
+        color: lightblue;
+    }
+
     span {
         font-size: 32px;
         font-weight: bold;
@@ -24,4 +33,8 @@ header {
         margin-left: 8px;
     }
 
+}
+
+.spacer {
+    flex: 1 1 auto;
 }

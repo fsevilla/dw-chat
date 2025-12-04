@@ -1,33 +1,42 @@
 <div id="signup-container">
     <h1>Sign Up</h1>
     <form [formGroup]="form">
+        <mat-form-field [appearance]="fieldAppearance">
+            <mat-label for="name">Name: </mat-label>
+            <input matInput type="text" name="name" formControlName="name">
+            <mat-error>
+                {{ getNameErrorMessage() }}
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field [appearance]="fieldAppearance">
+            <mat-label for="display">Display Name</mat-label>
+            <input matInput type="text" name="display" formControlName="displayName">
+        </mat-form-field>
+        <mat-form-field [appearance]="fieldAppearance">
+            <mat-label for="email">Email: </mat-label>
+            <input matInput type="email" name="email" formControlName="email">
+        </mat-form-field>
+        <mat-form-field [appearance]="fieldAppearance">
+            <mat-label for="password">Password: </mat-label>
+            <input matInput type="password" name="password" formControlName="password">
+        </mat-form-field>
+        <mat-form-field [appearance]="fieldAppearance">
+            <mat-label for="confirm">Confirm Password: </mat-label>
+            <input matInput type="password" name="confirm" formControlName="confirm">
+        </mat-form-field>
+        @if (form.errors && form.controls['password'].touched && form.controls['confirm'].touched) {
         <div>
-            <label for="name">Name: </label>
-            <input type="text" name="name" formControlName="name">
+            <span class="error">Passwords do not match</span>
+        </div>
+        }
+        
+        <div>
+            <mat-checkbox formControlName="terms">
+                I accept the terms and conditions
+            </mat-checkbox>
         </div>
         <div>
-            <label for="display">Display Name</label>
-            <input type="text" name="display" formControlName="displayName">
-        </div>
-        <div>
-            <label for="email">Email: </label>
-            <input type="email" name="email" formControlName="email">
-        </div>
-        <div>
-            <label for="password">Password: </label>
-            <input type="password" name="password" formControlName="password">
-        </div>
-        <div>
-            <label for="confirm">Confirm Password: </label>
-            <input type="password" name="confirm" formControlName="confirm">
-        </div>
-        <div>
-            <label><input type="checkbox" formControlName="terms"> I accept the terms and conditions</label>
-        </div>
-        <div>
-            <button [disabled]="form.invalid">Sign up</button>
+            <button [disabled]="form.invalid" matButton="elevated">Sign up</button>
         </div>
     </form>
 </div>
-
-Valid? {{form.valid}}

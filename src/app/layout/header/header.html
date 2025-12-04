@@ -1,11 +1,20 @@
-<header>
-    <span>My App</span>
+<mat-toolbar>
+
+    <a matButton>
+        <mat-icon fontIcon="settings"></mat-icon>
+        My App</a>
 
     <span class="spacer"></span>
 
-    <!-- <a href="{{links[0].href}}">{{links[0].label}}</a> -->
-    @for (item of links; track $index) {
-         <a routerLink="{{item.href}}">{{item.label}}</a>
-    }
 
-</header>
+    <button matIconButton [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        @for (item of links; track $index) {
+        <a mat-menu-item routerLink="{{item.href}}">{{item.label}}</a>
+        <!-- <button mat-menu-item routerLink="{{item.href}}">{{item.label}}</button> -->
+        }
+    </mat-menu>
+
+</mat-toolbar>
