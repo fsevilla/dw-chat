@@ -1,1 +1,9 @@
-<p>users-list works!</p>
+@if (isLoading()) {
+    <dw-overlay></dw-overlay>
+}
+
+<ul>
+    @for (user of users; track $index) {
+        <li>{{user.name}}</li>
+    }
+</ul>
