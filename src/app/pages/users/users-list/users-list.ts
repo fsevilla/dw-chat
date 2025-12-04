@@ -3,10 +3,11 @@ import { User as UserService } from '../services/user';
 import { User } from '../types/user';
 import { CommonModule } from '@angular/common';
 import { Overlay } from '../../../shared/components/overlay/overlay';
+import { DataTable } from '../../../shared/components/data-table/data-table';
 
 @Component({
   selector: 'dw-users-list',
-  imports: [CommonModule, Overlay],
+  imports: [CommonModule, Overlay, DataTable],
   templateUrl: './users-list.html',
   styleUrl: './users-list.scss',
 })

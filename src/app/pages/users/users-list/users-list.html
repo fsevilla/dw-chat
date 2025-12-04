@@ -1,9 +1,3 @@
-@if (isLoading()) {
-    <dw-overlay></dw-overlay>
-}
+<dw-overlay [loading]="isLoading()"></dw-overlay>
 
-<ul>
-    @for (user of users; track $index) {
-        <li>{{user.name}}</li>
-    }
-</ul>
+<dw-data-table [items]="users"></dw-data-table>
