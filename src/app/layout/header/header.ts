@@ -1,15 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatMenuModule } from '@angular/material/menu';
 import { HeaderLink } from '../../shared/types/header-link';
+import { MaterialModule } from '../../shared/modules/material/material-module';
 
 @Component({
   selector: 'dw-header',
-  imports: [CommonModule, RouterModule, MatIconModule, MatToolbarModule, MatButtonModule, MatMenuModule],
+  imports: [CommonModule, RouterModule, MaterialModule],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })

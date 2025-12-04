@@ -25,3 +25,16 @@
         guards 
 
 
+pages/
+    users/
+        users-module 
+        users.ts 
+        users.html
+
+
+USERS
+
+/users''  - UsersList
+/users'/new' - NewUser
+/users'/ID' - UserDetails
+/users'/ID/edit' - UpdateUser

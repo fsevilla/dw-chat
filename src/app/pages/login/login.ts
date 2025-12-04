@@ -2,11 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { MaterialModule } from '../../shared/modules/material/material-module';
 
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'dw-login',
@@ -15,10 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
     FormsModule,
     RouterModule,
     ReactiveFormsModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule
+    MaterialModule
   ],
   templateUrl: './login.html',
   styleUrl: './login.scss',

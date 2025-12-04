@@ -7,6 +7,7 @@ import { Contact } from './pages/contact/contact';
 import { Signup } from './pages/signup/signup';
 import { Login } from './pages/login/login';
 
+
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: Home },
@@ -14,6 +15,10 @@ export const routes: Routes = [
     { path: 'contact', component: Contact },
     { path: 'signup', component: Signup },
     { path: 'login', component: Login },
+    { 
+        path: 'users',  
+        loadChildren: () => import('./pages/users/users-module').then(m => m.UsersModule)
+    },
     { path: '**', component: NotFound }
 ];
 
