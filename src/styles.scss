@@ -36,3 +36,19 @@ body {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+form.stack-form {
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  > div:last-of-type {
+    text-align: right;
+
+    button {
+      margin-left: 8px;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 <div id="signup-container">
     <h1>Sign Up</h1>
-    <form [formGroup]="form">
+    <form class="stack-form" [formGroup]="form">
         <mat-form-field [appearance]="fieldAppearance">
             <mat-label for="name">Name: </mat-label>
             <input matInput type="text" name="name" formControlName="name">
@@ -36,6 +36,7 @@
             </mat-checkbox>
         </div>
         <div>
+            <span>Already have an account? <a routerLink="/login">Log in</a></span>
             <button [disabled]="form.invalid" matButton="elevated">Sign up</button>
         </div>
     </form>

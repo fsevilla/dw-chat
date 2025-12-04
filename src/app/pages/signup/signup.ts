@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule, MatFormFieldAppearance } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'dw-signup',
@@ -14,7 +15,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    RouterModule
   ],
   templateUrl: './signup.html',
   styleUrl: './signup.scss',
