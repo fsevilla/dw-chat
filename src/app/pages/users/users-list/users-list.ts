@@ -4,6 +4,8 @@ import { User } from '../types/user';
 import { CommonModule } from '@angular/common';
 import { Overlay } from '../../../shared/components/overlay/overlay';
 import { DataTable } from '../../../shared/components/data-table/data-table';
+import { DataTableColumn } from '../../../shared/types/data-table-column';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'dw-users-list',
@@ -17,12 +19,18 @@ export class UsersList implements OnInit {
   // isLoading = false;
   isLoading = signal<boolean>(false);
 
-  constructor(private userSerivce: UserService) {}
+  columns: DataTableColumn[] = [
+    { title: 'Name', property: 'name' },
+    { title: 'Username', property: 'username' },
+    { title: 'Email', property: 'email' }
+  ]
+
+  constructor(private userSerivce: UserService, private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
     // this.isLoading = true;
     this.isLoading.set(true);
-    this.userSerivce.getAll().subscribe({
+    this.userSerivce.getAllUsers().subscribe({
       next: (response) => {
         this.users = response;
         this.isLoading.set(false);
@@ -33,4 +41,11 @@ export class UsersList implements OnInit {
     });
   }
 
+  handleItemSelected(user: User) {
+    // redirect to the user's details page
+    this.router.navigate([user.id], {
+      relativeTo: this.activatedRoute
+    });
+    
+  }
 }
