@@ -44,7 +44,7 @@ export class UsersList implements OnInit {
   handleItemSelected(user: User) {
     // redirect to the user's details page
     this.userService.setSelectedUser(user);
-    this.router.navigate([user.id], {
+    this.router.navigate([user._id], {
       relativeTo: this.activatedRoute
     });
     

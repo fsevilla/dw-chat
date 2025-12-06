@@ -31,7 +31,7 @@ export class UserDetails implements OnInit {
     // Get the selected user and compare if IDs match 
     const selectedUser = this.userService.getSelectedUser();
 
-    if (selectedUser && selectedUser.id === this.userId) {
+    if (selectedUser && selectedUser._id === this.userId) {
       this.user = selectedUser;
       return;
     }
