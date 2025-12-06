@@ -7,6 +7,12 @@
     <span class="spacer"></span>
 
 
+    @if (isLoggedIn()) {
+        <button matButton (click)="logout()">Log out</button>
+    } @else {
+        <a matButton [routerLink]="loginPage">Log in</a>
+    }
+
     <button matIconButton [matMenuTriggerFor]="menu">
         <mat-icon>menu</mat-icon>
     </button>

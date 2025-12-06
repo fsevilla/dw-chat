@@ -10,6 +10,11 @@
             <input type="password" matInput formControlName="password">
         </mat-form-field>
         <div>
+            @if (hasError()) {
+                <p>invalid credentials</p>
+            }
+        </div>
+        <div>
             <span>Don't have an account? <a routerLink="/signup">Sign up here</a></span>
             <button matButton="elevated" [disabled]="form.invalid">Log in</button>
         </div>

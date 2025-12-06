@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { MaterialModule } from '../../shared/modules/material/material-module';
@@ -23,6 +23,7 @@ import { PagesList } from '../../shared/types/pages-list';
 export class Login {
 
   form: FormGroup;
+  hasError = signal(false);
 
   constructor(fb: FormBuilder, private loginService: LoginService, private authService: AuthService, private router: Router) {
     this.form = fb.group({
@@ -37,10 +38,13 @@ export class Login {
     this.loginService.login(email, password).subscribe({
       next: (response) => {
         this.authService.saveToken(response.token);
+        this.hasError.set(false);
         // Take the user to the users page
         this.router.navigate([PagesList.USERS]);
       },
-      error: () => {}
+      error: () => {
+        this.hasError.set(true);
+      }
     });
   }
   
