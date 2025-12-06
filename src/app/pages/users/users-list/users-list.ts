@@ -25,12 +25,12 @@ export class UsersList implements OnInit {
     { title: 'Email', property: 'email' }
   ]
 
-  constructor(private userSerivce: UserService, private router: Router, private activatedRoute: ActivatedRoute) {}
+  constructor(private userService: UserService, private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
     // this.isLoading = true;
     this.isLoading.set(true);
-    this.userSerivce.getAllUsers().subscribe({
+    this.userService.getAllUsers().subscribe({
       next: (response) => {
         this.users = response;
         this.isLoading.set(false);
@@ -43,6 +43,7 @@ export class UsersList implements OnInit {
 
   handleItemSelected(user: User) {
     // redirect to the user's details page
+    this.userService.setSelectedUser(user);
     this.router.navigate([user.id], {
       relativeTo: this.activatedRoute
     });

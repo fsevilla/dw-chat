@@ -12,6 +12,8 @@ export class User extends Crud {
 
   protected override endpoint: string = 'users';
 
+  private selectedUser: IUser | null = null;
+
   getAllUsers(): Observable<IUser[]> {
     return super.getAll<IUser>();
   }
@@ -22,7 +24,7 @@ export class User extends Crud {
   // }
 
   getUserById(id: string): Observable<IUser> {
-    return this.http.get<IUser>(id);
+    return super.getById<IUser>(id);
   }
 
   // update(user: IUser) {}
@@ -30,6 +32,14 @@ export class User extends Crud {
   // deleteById(id: string) {}
 
   // create(user: IUser) {}
+
+  setSelectedUser(user: IUser): void {
+    this.selectedUser = user;
+  }
+
+  getSelectedUser(): IUser | null {
+    return this.selectedUser;
+  }
   
 }
 

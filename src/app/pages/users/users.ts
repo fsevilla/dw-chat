@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from "@angular/router";
+import { Router, RouterOutlet } from "@angular/router";
+import { AuthService } from '../../shared/services/auth';
+import { PagesList } from '../../shared/types/pages-list';
 
 @Component({
   selector: 'dw-users',
@@ -8,5 +10,7 @@ import { RouterOutlet } from "@angular/router";
   styleUrl: './users.scss',
 })
 export class Users {
+
+  
 
 }

@@ -6,6 +6,8 @@ import { NotFound } from './pages/not-found/not-found';
 import { Contact } from './pages/contact/contact';
 import { Signup } from './pages/signup/signup';
 import { Login } from './pages/login/login';
+import { authGuard } from './shared/guards/auth-guard';
+import { unauthGuard } from './shared/guards/unauth-guard';
 
 
 export const routes: Routes = [
@@ -13,10 +15,11 @@ export const routes: Routes = [
     { path: 'home', component: Home },
     { path: 'about', component: About },
     { path: 'contact', component: Contact },
-    { path: 'signup', component: Signup },
-    { path: 'login', component: Login },
+    { path: 'signup', component: Signup, canActivate: [unauthGuard] },
+    { path: 'login', component: Login, canActivate: [unauthGuard] },
     { 
-        path: 'users',  
+        path: 'users', 
+        canActivate: [authGuard],
         loadChildren: () => import('./pages/users/users-module').then(m => m.UsersModule)
     },
     { path: '**', component: NotFound }
